@@ -1,10 +1,6 @@
-# pjt10
+# Project_Vue_Movie
 
-#### 서울 3반 이민아 21.05.14
-
-
-
-> Vue router
+### 서울 3반 이민아 21.05.14
 
 
 
@@ -14,9 +10,67 @@
 
 
 
-### 0. 구조 
+---
 
-### (1) 구조
+## Index
+
+
+
+- [Image](#image)
+
+- [Structure](#structure)
+
+- router
+
+  - [index.js](#routerindexjs)
+
+- [App.vue](#appvue)
+
+- views
+
+  - [Home.vue](#viewshomevue)
+  - [MyMovieList.vue](#viewsmymovielistvue)
+  - [Random.vue](#viewsrandomvue)
+
+- components
+
+  - [MyListForm.vue](#componentsmylistformvue)
+  - [MyList.vue](#componentsmylistvue)
+  - [MovieCard.vue](#componentsvmoviecardvue)
+
+  
+
+----
+
+## Image
+
+
+
+### 1. Home 
+
+![KakaoTalk_20210514_171609733](README.assets/KakaoTalk_20210514_171609733.png)
+
+
+
+### 2. Random 
+
+![KakaoTalk_20210514_171609733_01](README.assets/KakaoTalk_20210514_171609733_01.png)
+
+### 3. MyMovieList
+
+![KakaoTalk_20210514_171609733_02](README.assets/KakaoTalk_20210514_171609733_02.png)
+
+
+
+
+
+---
+
+## Structure
+
+
+
+### 1. 구조
 
 - public
   - index.html **(Bootstrap CDN)**
@@ -33,7 +87,7 @@
     - MyList.vue (MyMovieList.vue)
     - MyListForm.vue (MyMovieList.vue)
 
-### (2) 명령어
+### 2. 명령어
 
 - [Terminal]
 
@@ -60,7 +114,9 @@ vue add vuex // vuex 설치
 node file_name // file_name의 console 보기 가능
 ```
 
-### (3) 문법
+
+
+### 3. 문법
 
 - Destructuring (`{}`)
 
@@ -68,9 +124,14 @@ node file_name // file_name의 console 보기 가능
 
 - 컴포넌트 바인딩 헬퍼 (`mapGetters`, `mapState`, `mapActions`) 
 
-  
 
-### 1. router / index.js
+
+
+---
+
+## router/index.js
+
+
 
 - import component 불러오기
 - path, name, component 등록
@@ -113,11 +174,15 @@ const router = new VueRouter({
 export default router
 ```
 
-### 
 
-### 2. App.vue 
 
-### 2.1 template
+----
+
+## App.vue 
+
+
+
+### 1. template
 
 - router-link 의 `{name}`
 
@@ -136,7 +201,9 @@ export default router
 </template>
 ```
 
-### 2.2 script
+
+
+### 2. script
 
 - import axios 불러오기
 
@@ -175,9 +242,13 @@ export default {
 
 
 
-### 3. views/Home.vue 
+---
 
-### 3.1 template
+## views/Home.vue 
+
+### 
+
+### 1. template
 
 - component 보여주기 : `<MovieCard/>`
 - v-for : `v-for="(movie, idx) in movies" ` `:key="idx" ` key 값 필수 v-bind
@@ -202,7 +273,9 @@ export default {
 </template>
 ```
 
-### 3.2 script
+
+
+### 2. script
 
 - import : component 불러오기 import
 - components : component 등록
@@ -230,9 +303,13 @@ export default {
 
 
 
-### 4. views/MyMovieList.vue 
+---
 
-### 4.1 template
+## views/MyMovieList.vue 
+
+### 
+
+### 1. template
 
 - component 보여주기 : `<MyListForm/>` `<MyList />`
 - v-for : `v-for="(myMovie, idx) in myMovies" ` `:key="idx" ` key 값 필수 v-bind
@@ -258,7 +335,9 @@ export default {
 
 ```
 
-### 4.2 script
+
+
+### 2. script
 
 - import : component 불러오기
 - components : component 등록
@@ -296,9 +375,13 @@ export default {
 
 
 
-### 5. views/Random.vue
+---
 
-### 5.1 template
+## views/Random.vue
+
+
+
+### 1. template
 
 - v-on 이벤트 발생시 함후 실행 `@click="randomMovie"`
 
@@ -315,7 +398,7 @@ export default {
 
 
 
-### 5.2 script
+### 2. script
 
 - import : `import _ from 'lodash'`
 - lodash 랜덤 : `this.movie = _.sample(this.movies)`
@@ -346,9 +429,13 @@ export default {
 
 
 
-### 6. components/MyListForm.vue
+---
 
-### 6.1 template
+## components/MyListForm.vue
+
+
+
+### 1. template
 
 - v-on 이벤트 발생시 함후 실행 `@keyup.enter="myMovie"` `@click="myMovie"`
 - v-model 양방향 바인딩 (값 초기화를 위해) `v-model="movieTitle"`
@@ -372,7 +459,7 @@ export default {
 </template>
 ```
 
-### 6.2 script
+### 2. script
 
 - data : movieTitle 빈 str 초기값 `movieTitle: ''`
 
@@ -412,9 +499,13 @@ export default
 
 
 
-### 7. components/MyList.vue
+---
 
-### 7.1 template
+## components/MyList.vue
+
+
+
+### 1. template
 
 - [MyList.vue]
 
@@ -424,7 +515,9 @@ export default
 </template>
 ```
 
-### 7.2 script
+
+
+### 2. script
 
 - props : 상위 컴포넌트(MyMovieList.vue) →  하위 컴포넌트(MyList.vue) `type: String,`
 - v-bind (MyMovieList.vue )
@@ -455,9 +548,13 @@ export default {
 
 
 
-### 8. components/MovieCard.vue
+---
 
-### 8.1 template
+## components/MovieCard.vue
+
+
+
+### 1. template
 
 - v-bind image 경로
 
@@ -483,7 +580,9 @@ export default {
 </template>
 ```
 
-### 8.2 script
+
+
+### 2. script
 
 - props : 상위(Home.vue ) → 하위(MovieCard.vue) `type: String,`
 - v-bind (Home.vue)
@@ -517,10 +616,3 @@ export default {
 
 
 
-### 9. 결과
-
-![KakaoTalk_20210514_171609733_01](README.assets/KakaoTalk_20210514_171609733_01.png)
-
-![KakaoTalk_20210514_171609733_02](README.assets/KakaoTalk_20210514_171609733_02.png)
-
-![KakaoTalk_20210514_171609733](README.assets/KakaoTalk_20210514_171609733.png)
