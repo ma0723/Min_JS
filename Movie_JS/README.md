@@ -36,7 +36,7 @@
 
   - [MyListForm.vue](#componentsmylistformvue)
   - [MyList.vue](#componentsmylistvue)
-  - [MovieCard.vue](#componentsvmoviecardvue)
+  - [MovieCard.vue](#componentsmoviecardvue)
 
   
 
